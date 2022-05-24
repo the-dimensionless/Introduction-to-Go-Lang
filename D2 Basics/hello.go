@@ -1,7 +1,9 @@
-package main
+package main // pkg definition
 
-import "fmt"
+import "fmt" // pkg import
 
+// func definition
 func main() {
-	fmt.Println("Hello World!")
+	fmt.Println("Hello World!") // IO
+
 }
