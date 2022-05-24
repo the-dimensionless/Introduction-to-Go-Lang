@@ -9,4 +9,5 @@ import (
 func main() {
 	fmt.Println("Hello World!") // IO
 	sayings.Pithy()
+	demoVars()
 }
