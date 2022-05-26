@@ -16,4 +16,7 @@ func demoVars() {
 	// multiple variables
 	var i, k = 200, "Hello"
 	fmt.Printf("Value of i %d and k is %s", i, k)
+
+	// var i = 100
+
 }
