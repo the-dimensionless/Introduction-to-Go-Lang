@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 func demoVars() {
 	a := 10
@@ -23,8 +27,12 @@ func demoVars() {
 }
 
 func main() {
-	demoLoops()
-	demoSwitchCase()
+	// demoLoops()
+	// demoSwitchCase()
+	// demoArrays()
+
+	// demoSlices()
+	demoMath()
 }
 
 func demoLoops() {
@@ -62,7 +70,8 @@ func demoLoops() {
 }
 
 func demoSwitchCase() {
-	a, b := 1, 2
+	// var a, b = 1, 2.2
+	var a, b = 1, 2
 
 	switch a + b {
 	case 1:
@@ -76,4 +85,67 @@ func demoSwitchCase() {
 	default:
 		fmt.Println("Default case")
 	}
+}
+
+func demoArrays() {
+	fmt.Println("\n ARRAYS")
+	var arr [3]int
+	arr[0] = 0
+	arr[1] = 1
+	arr[2] = 2.0 // but 2.3 wont work
+	// arr[3] = 4 // error
+
+	fmt.Println("Length of arr => ", len(arr))
+	fmt.Println("Arr is => ", arr)
+
+	b := []int{1, 2, 3}
+	fmt.Println("Length of b => ", len(b))
+	for _, item := range b {
+		fmt.Println(item)
+	}
+
+	array := []int{10, 20, 30}
+	array = append(array, 1)
+	array = append(array, 2)
+	fmt.Printf("Dynamic Array: %v\n", array)
+}
+
+func demoSlices() {
+	arr := [4]string{
+		"Stark",
+		"Rogers",
+		"Banner",
+		"Natasha",
+	}
+	fmt.Printf("arr after init no slice : %v\n", arr)
+
+	slice1 := arr[1:3]
+	fmt.Printf("Slice [1:3] is %v\n", slice1)
+
+	slice2 := arr[:3]
+	slice2[0] = "dummy"
+	fmt.Printf("Slice [:3] is %v\n", slice2)
+
+	slice3 := arr[1:]
+	fmt.Printf("Slice [1:] is %v\n", slice3)
+
+	fmt.Printf("arr after slices : %v\n", arr)
+
+	slice1 = append(slice1, slice2...)
+	fmt.Printf("arr after slices : %v\n", slice1)
+
+}
+
+func demoMath() {
+	// Randomizers
+
+	source := rand.NewSource(int64(time.Now().UnixNano())) // Create new source/seed
+	r := rand.New(source)
+
+	random := r.Intn(20)
+	fmt.Println(random)
+
+	// pseudo randomizers
+	fmt.Println("default seed", rand.Intn(10), rand.Intn(30))
+
 }
